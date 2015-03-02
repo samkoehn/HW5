@@ -15,22 +15,24 @@
         <br /><br />
      
         Loan Amount:<asp:TextBox ID="tbLoanAmt" runat="server" ></asp:TextBox>
-                  
+                
          <span class="errorMessage">
               &nbsp;<asp:Label ID="lbl_amountError" runat="server"></asp:Label>  
           </span>           
         <br /><br />      
         
         Annual Interest %: <asp:TextBox ID="tbAnnualInterest" runat="server" ></asp:TextBox>
-        
-        <asp:Label ID="lbl_interestError" runat="server"></asp:Label>
+        <span class="errorMessage">
+            <asp:Label ID="lbl_interestError" runat="server"></asp:Label>
+        </span>
         
         <br /><br />
 
         Loan Term (Yrs): <asp:TextBox ID="tbLoanTerm" runat="server" ></asp:TextBox>
-        
-        <asp:Label ID="lbl_termError" runat="server"></asp:Label>
-        
+        <span class="errorMessage">
+              <asp:Label ID="lbl_termError" runat="server"></asp:Label>
+        </span>
+
         <br /><br />
 
         <asp:Button ID="btnCalcPmt" runat="server" Text="Calculate" /> 
