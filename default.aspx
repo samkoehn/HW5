@@ -14,23 +14,30 @@
         
         <br /><br />
      
-        Loan Amount:<asp:TextBox ID="tbLoanAmt" runat="server" ></asp:TextBox>
-                
+        Loan Amount:<asp:TextBox ID="tb_loanAmount" runat="server" ></asp:TextBox>
          <span class="errorMessage">
-              &nbsp;<asp:Label ID="lbl_amountError" runat="server"></asp:Label>  
+             <asp:RequiredFieldValidator ID="rfv_loanAmount" runat="server" 
+                 ControlToValidate="tb_loanAmount"
+                 ErrorMessage="**Please enter a loan amount**"></asp:RequiredFieldValidator>  
           </span>           
         <br /><br />      
         
-        Annual Interest %: <asp:TextBox ID="tbAnnualInterest" runat="server" ></asp:TextBox>
+        Annual Interest %: <asp:TextBox ID="tb_AnnualInterest" runat="server" ></asp:TextBox>
         <span class="errorMessage">
-            <asp:Label ID="lbl_interestError" runat="server"></asp:Label>
+            <asp:RequiredFieldValidator ID="rfv_annualInterest" runat="server" 
+                ControlToValidate="tb_AnnualInterest"
+                ErrorMessage="**Please enter annual interest**">
+
+            </asp:RequiredFieldValidator>
         </span>
         
         <br /><br />
 
-        Loan Term (Yrs): <asp:TextBox ID="tbLoanTerm" runat="server" ></asp:TextBox>
+        Loan Term (Yrs): <asp:TextBox ID="tb_LoanTerm" runat="server" ></asp:TextBox>
         <span class="errorMessage">
-              <asp:Label ID="lbl_termError" runat="server"></asp:Label>
+            <asp:RequiredFieldValidator ID="rfv_LoanTerm" runat="server" 
+                ControlToValidate="tb_LoanTerm"
+                ErrorMessage="**Please enter your loan term **"></asp:RequiredFieldValidator>
         </span>
 
         <br /><br />
@@ -43,7 +50,7 @@
         
         <br /><br />
                 
-        Monthly Payment: &nbsp; <asp:Label ID="lblMonthlyPmt" runat="server"></asp:Label>
+        Monthly Payment: &nbsp; <asp:Label ID="lbl_MonthlyPmt" runat="server"></asp:Label>
         
         <br /><br />
         

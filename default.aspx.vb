@@ -10,15 +10,13 @@ Partial Class _Default
             Dim interestRate As Double
             Dim term As Integer
             Dim loanTerm As Integer
-            Dim monthlyPayment As Double
-        If tbAnnualInterest.Text = String.Empty Then lbl_interestError.Text = "**Please enter your annual interest rate**"
-        If tbLoanAmt.Text = String.Empty Then lbl_amountError.Text = "**Please enter your loan amount**"
-        If tbLoanTerm.Text = String.Empty Then lbl_termError.Text = "**Please enter the length of your loan**"
+        Dim monthlyPayment As Double
 
         'This section is declaring the variables for loan amortization.
         Dim interestPaid As Double
         Dim nBalance As Double
         Dim principal As Double
+        Dim paymentdate As String = DateFormat.ShortDate
 
         'Declaring a table to hold the payment information.
         Dim table As DataTable = New DataTable("ParentTable")
@@ -29,12 +27,12 @@ Partial Class _Default
         interestPaid = 0.0
 
         'This section converts each input string to the appropriate variable assigned.
-        loanAmount = CDbl(tbLoanAmt.Text)
-        annualRate = CDbl(tbAnnualInterest.Text)
-        term = CDbl(tbLoanTerm.Text)
+        loanAmount = CDbl(tb_loanAmount.Text)
+        annualRate = CDbl(tb_AnnualInterest.Text)
+        term = CDbl(tb_LoanTerm.Text)
 
         'This section formats the loan input to currency.
-        tbLoanAmt.Text = FormatCurrency(loanAmount)
+        tb_loanAmount.Text = FormatCurrency(loanAmount)
 
         'Converting the annual rate to a monthly rate by dividing by 100 * 12 (months in a year)
         interestRate = annualRate / (100 * 12)
@@ -46,7 +44,7 @@ Partial Class _Default
         monthlyPayment = loanAmount * interestRate / (1 - Math.Pow((1 + interestRate), (-loanTerm)))
 
         'Displaying the monthly payment in the textbox and converts the variable to currency.
-        lblMonthlyPmt.Text = FormatCurrency(monthlyPayment)
+        lbl_MonthlyPmt.Text = FormatCurrency(monthlyPayment)
 
 
         'Adds items to list box, formats them for currency and adds pad spacing for each item.
@@ -81,12 +79,11 @@ Partial Class _Default
         loanGridView.DataBind()
 
 
-        End Sub
+    End Sub
 
     Protected Sub btn_remove_Click(sender As Object, e As EventArgs) Handles btn_remove.Click
-        tbLoanAmt.Text = String.Empty
-        tbAnnualInterest.Text = String.Empty
-        tbLoanTerm.Text = String.Empty
-
+        tb_loanAmount.Text = String.Empty
+        tb_AnnualInterest.Text = String.Empty
+        tb_LoanTerm.Text = String.Empty
     End Sub
 End Class
